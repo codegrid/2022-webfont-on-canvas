@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CanvasにWebフォントを描画して画像としてダウンロードするアプリ</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Rampart+One&family=Reggae+One&family=Stick&family=Train+One&family=Zen+Maru+Gothic&display=swap');
+
+      html {
+        text-align: center;
+      }
+      select,
+      input {
+        color: #555;
+        padding: 4px;
+        border: solid 1px #ccc;
+      }
+      button {
+        border: none;
+        background-color: #000;
+        color: #ccc;
+        padding: 4px;
+      }
+      button:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+      canvas {
+        width: 100%;
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      font:
+      <select>
+        <option>Train One</option>
+        <option>Zen Maru Gothic</option>
+        <option>Hachi Maru Pop</option>
+        <option>DotGothic16</option>
+        <option>Rampart One</option>
+        <option>Reggae One</option>
+        <option>Stick</option>
+      </select>
+      text: <input name="text-editor" type="text" />
+      <button>Download</button>
+    </div>
+    <div>
+      <canvas></canvas>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

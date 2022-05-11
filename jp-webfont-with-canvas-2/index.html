@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>フォントデータの読み込みの確認</title>
+    <style>
+      @font-face {
+        font-family: 'HiraGana';
+        src: url('./fonts/rampart-one/hiragana__a-to-o.ttf');
+        unicode-range: U+3042-3049;
+      }
+      @font-face {
+        font-family: 'HiraGana';
+        src: url('./fonts/rampart-one/hiragana__ka-to-ko.ttf');
+        unicode-range: U+304B-3053;
+      }
+    </style>
+  </head>
+  <body>
+    <p>DevTools の console を確認ください。</p>
+    <script>
+      document.fonts.ready.then(() => {
+        const log = (label, text) => {
+          console.log(`●「${text}」読み込み${label}`);
+          document.fonts.forEach(({ family, unicodeRange, status }) => {
+            if (family === 'Graphik Web') return;
+            console.log(family, unicodeRange, status);
+          });
+        };
+        const load = text => {
+          log('開始前', text);
+          document.fonts.load('16px HiraGana', text).then(() => {
+            log('完了後', text);
+          });
+          console.log('');
+        };
+        load('あお');
+        load('あか');
+        load('き');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>要素へのWebフォントの適用</title>
+    <style>
+      @font-face {
+        font-family: 'fooFont';
+        src: url('./fonts/Stalemate/Stalemate-Regular.ttf');
+      }
+      html {
+        text-align: center;
+        font-size: 40px;
+      }
+      legend {
+        font-size: 20px;
+      }
+      fieldset {
+        margin: 16px;
+        border: solid 1px #aaa;
+      }
+      legend {
+        padding: 0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>web font</legend>
+      <button>add web font text</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>device font</legend>
+      <div>Font Example</div>
+    </fieldset>
+
+    <script>
+      document.querySelector('button').addEventListener('click', function () {
+        const el = document.createElement('div');
+        el.style.fontFamily = 'fooFont';
+        el.textContent = 'Font Example';
+        this.replaceWith(el);
+      });
+    </script>
+  </body>
+</html>

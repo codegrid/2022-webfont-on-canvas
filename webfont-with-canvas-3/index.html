@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CanvasへのWebフォントの適用</title>
+    <style>
+      html {
+        text-align: center;
+        font-size: 40px;
+      }
+      legend {
+        font-size: 20px;
+      }
+      fieldset{
+        border:solid 1px #aaa;
+      }
+      legend{
+        padding:0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>canvas</legend>
+      <canvas>
+    </fieldset>
+
+    <fieldset>
+      <legend>device font</legend>
+      <div>Font Example</div>
+    </fieldset>
+
+    <script>
+      const fooFont = new FontFace(
+        'fooFont',
+        'url("./fonts/Stalemate/Stalemate-Regular.ttf")'
+      );
+      document.fonts.add(fooFont)
+      fooFont.load().then(()=>{
+        const canvas = document.querySelector("canvas");
+        canvas.width = 400;
+        canvas.height = 50;
+        const ctx = canvas.getContext("2d");
+        ctx.textAlign = "center";
+        ctx.font = `40px "fooFont"`;
+        ctx.fillText("Font Example", 200, 40);
+      })
+    </script>
+  </body>
+</html>

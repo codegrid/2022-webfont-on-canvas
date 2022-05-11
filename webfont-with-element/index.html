@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>要素へのWebフォントの適用</title>
+    <style>
+      @font-face {
+        font-family: 'fooFont';
+        src: url('./fonts/Stalemate/Stalemate-Regular.ttf');
+        unicode-range: U+30-39;
+      }
+      html {
+        text-align: center;
+        font-size: 40px;
+      }
+      legend {
+        font-size: 20px;
+      }
+      fieldset {
+        margin: 16px;
+        border: solid 1px #aaa;
+      }
+      legend {
+        padding: 0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>web font</legend>
+      <div style="font-family: fooFont">Font Example 123</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>device font</legend>
+      <div>Font Example</div>
+    </fieldset>
+
+    <script>
+      document.fonts.forEach(fontFace => {
+        console.log(fontFace);
+      });
+    </script>
+  </body>
+</html>
